@@ -17,5 +17,4 @@ This can be used to register the server/proxy aka service in a third system
 The API can be obtained with local publishing via `gradlew publishToMavenLocal`.
 
 ## Download
-**We do not currently produce automatic downloads**
-Please build it yourself, plus `gradlew jar`.
+To download a current usable version you can use the built-in `modules install CloudNet-JMX-Support` command or download the jar from the release page and put it in the modules folder 
