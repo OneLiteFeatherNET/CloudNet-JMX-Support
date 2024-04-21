@@ -4,6 +4,7 @@ import dev.onelitefeather.cloudnet.v4.jmxsupport.commands.JMXCommand;
 import dev.onelitefeather.cloudnet.v4.jmxsupport.config.JMXConfiguration;
 import dev.onelitefeather.cloudnet.v4.jmxsupport.config.JMXServiceTaskConfig;
 import dev.onelitefeather.cloudnet.v4.jmxsupport.listener.CloudNetLocalServiceListener;
+import eu.cloudnetservice.common.language.I18n;
 import eu.cloudnetservice.driver.document.DocumentFactory;
 import eu.cloudnetservice.driver.event.EventManager;
 import eu.cloudnetservice.driver.module.ModuleLifeCycle;
@@ -37,13 +38,12 @@ public final class JMXSupportModule extends DriverModule {
                 taskProvider.addServiceTask(newTask);
             }
         }
+        I18n.loadFromLangPath(JMXSupportModule.class);
     }
 
     @ModuleTask(lifecycle = ModuleLifeCycle.STARTED)
     public void start(EventManager eventManager, CommandProvider commandProvider) {
-        eventManager
-                .registerListener(CloudNetLocalServiceListener.class);
-
+        eventManager.registerListener(CloudNetLocalServiceListener.class);
         commandProvider.register(JMXCommand.class);
     }
 
