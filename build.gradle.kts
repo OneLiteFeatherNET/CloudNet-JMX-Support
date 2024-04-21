@@ -1,6 +1,7 @@
 plugins {
     id("java")
     id("eu.cloudnetservice.juppiter") version "0.4.0"
+    `maven-publish`
 }
 
 group = "dev.onelitefeather.cloudnet"
