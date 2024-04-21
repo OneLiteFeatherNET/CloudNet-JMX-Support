@@ -1,0 +1,109 @@
+name: Behavior Bug or Module Incompatibility
+description: Report issues with module incompatibility or other behavior related issues.
+labels: [ "status: needs triage", "type: bug" ]
+body:
+  - type: textarea
+    attributes:
+      label: Expected behavior
+      description: What you expected to see.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Actual behavior
+      description: What you actually saw.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Steps to reproduce
+      description: This may include a build schematic, a video, or detailed instructions to help reconstruct the issue.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Module List
+      description: |
+        All modules running on your cloud.
+        To list modules, run `modules list`.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: CloudNet version
+      description: |
+        Run `me` on your cloud and **paste** the full, unmodified output here.
+        "latest" is *not* a version; we require the output of `me` so we can adequately track down the issue.
+        Additionally, do NOT provide a screenshot, you MUST paste the entire output.
+        <details>
+        <summary>Example</summary>
+
+        ```
+        > me
+        [21.04 15:01:15.419] INFO:  
+        [21.04 15:01:15.419] INFO: CloudNet Blizzard 4.0.0-RC10 887ad7cf
+        [21.04 15:01:15.420] INFO: Discord: <https://discord.cloudnetservice.eu/>
+        [21.04 15:01:15.420] INFO:
+        [21.04 15:01:15.420] INFO: ClusterId: 1211ad3e-****-4445-****-f83adfd99781
+        [21.04 15:01:15.420] INFO: NodeId: Node-1
+        [21.04 15:01:15.421] INFO: Head-NodeId: Node-1
+        [21.04 15:01:15.421] INFO: CPU usage: (P/S) 1.08/6.21/100%
+        [21.04 15:01:15.421] INFO: Node services memory allocation (U/R/M): 768/768/8192 MB
+        [21.04 15:01:15.421] INFO: Threads: 29
+        [21.04 15:01:15.421] INFO: Heap usage: 54/256MB
+        [21.04 15:01:15.421] INFO: JVM: Azul Systems, Inc. 21 (OpenJDK 64-Bit Server VM 21.0.2+13-LTS)
+        [21.04 15:01:15.422] INFO: Update Repo: CloudNetService/launchermeta, Update Branch: beta
+        [21.04 15:01:15.422] INFO
+        ```
+
+        </details>
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Module version
+      description: |
+        Run `modules info CloudNet-JMX-Support` on your cloud and **paste** the full, unmodified output here.
+        "latest" is *not* a version; we require the output of `modules info CloudNet-JMX-Support` so we can adequately track down the issue.
+        Additionally, do NOT provide a screenshot, you MUST paste the entire output.
+        <details>
+        <summary>Example</summary>
+
+        ```
+        > modules info CloudNet-JMX-Support
+        [21.04 15:02:26.031] INFO: Module: CloudNet-JMX-Support
+        [21.04 15:02:26.032] INFO:  - Lifecycle: STARTED
+        [21.04 15:02:26.032] INFO:  - Version: 1.0.0-SNAPSHOT
+        [21.04 15:02:26.032] INFO:  - Author: TheMeinerLP
+        [21.04 15:02:26.032] INFO:  - Description: Node extension for the CloudNet runtime, which enables for all Java Processes the JMX Support
+        [21.04 15:02:26.032] INFO:  - Dependencies:
+                                  ```
+
+        </details>
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Other
+      description: |
+        Please include other helpful information below.
+        The more information we receive, the quicker and more effective we can be at finding the solution to the issue.
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        Before submitting this issue, please ensure the following:
+
+        1. You are running the latest version of CloudNet from [our release page](https://github.com/CloudNetService/CloudNet-v3/releases).
+        2. You searched for and ensured there isn't already an open issue regarding this.
+        3. Your version of CloudNet is supported by CloudNet-JMX-Support.
+        4. You are running the latest version of CloudNet-JMX-Support from [our release page](https://github.com/OneLiteFeatherNET/CloudNetV4-JMX-Support/releases).
+
+        If you think you have a bug but are not sure, feel free to ask the `#❓￤support` channel of our
+        [Discord](https://discord.onelitefeather.net).
