@@ -38,15 +38,16 @@ public final class CloudNetLocalServiceListener {
     public void handlePrePrepare(CloudServiceConfigurationPrePrepareEvent event) {
         var property = event.originalConfiguration().propertyHolder().readObject("jmxConfig", JMXServiceTaskConfig.class);
         if (property != null && property.enabled()) {
-            var newJvmOption = new ArrayList<>(event.originalConfiguration().jvmOptions());
             var jmxPort = findFreeServicePort(event.originalConfiguration(), this.configuration.hostAddress());
-            newJvmOption.add(JVM_RMI_HOSTNAME.formatted(this.configuration.hostAddress()));
-            newJvmOption.add(JVM_JMX_REMOTE);
-            newJvmOption.add(JVM_JMX_REMOTE_PORT.formatted(jmxPort));
-            newJvmOption.add(JVM_JMX_REMOTE_SSL);
-            newJvmOption.add(JVM_JMX_REMOTE_AUTH);
-            ServiceConfiguration.Builder builder = event.modifiableConfiguration().jvmOptions(newJvmOption);
-            this.eventManager.callEvent(new JMXExposeEvent(new HostAndPort(this.configuration.hostAddress(), jmxPort), builder.build()));
+
+            event.modifiableConfiguration().modifyJvmOptions(newJvmOption -> {
+                newJvmOption.add(JVM_RMI_HOSTNAME.formatted(this.configuration.hostAddress()));
+                newJvmOption.add(JVM_JMX_REMOTE);
+                newJvmOption.add(JVM_JMX_REMOTE_PORT.formatted(jmxPort));
+                newJvmOption.add(JVM_JMX_REMOTE_SSL);
+                newJvmOption.add(JVM_JMX_REMOTE_AUTH);
+            });
+            this.eventManager.callEvent(new JMXExposeEvent(new HostAndPort(this.configuration.hostAddress(), jmxPort), event.modifiableConfiguration().build()));
         }
     }
 
