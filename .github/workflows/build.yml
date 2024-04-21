@@ -25,4 +25,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: CloudNetV4-JMXSupport Archive
-          path: build/libs/CloudNetv4JMXSupport-*.jar
+          path: build/libs/CloudNetv4JMXSupport*.jar
