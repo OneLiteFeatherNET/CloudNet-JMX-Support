@@ -21,7 +21,7 @@ import java.util.Queue;
 import java.util.function.Function;
 
 @Singleton
-@CommandPermission("cloudnet.command.smart")
+@CommandPermission("cloudnet.command.jmx")
 @Description("module-jmx-command-description")
 public final class JMXCommand {
 
