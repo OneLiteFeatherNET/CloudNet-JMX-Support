@@ -1,0 +1,28 @@
+name: Build CloudNet v4 JMX Support
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    # Run on all label events (won't be duplicated) or all push events or on PR syncs not from the same repo
+    if: github.repository_owner == 'OneLiteFeatherNET'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Validate Gradle Wrapper
+        uses: gradle/wrapper-validation-action@v2
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          cache: gradle
+          java-version: 17
+      - name: Clean Build
+        run: ./gradlew clean build shadowJar --no-daemon
+      - name: Archive Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: CloudNetV4-JMXSupport Archive
+          path: build/libs/CloudNetv4JMXSupport-*.jar
