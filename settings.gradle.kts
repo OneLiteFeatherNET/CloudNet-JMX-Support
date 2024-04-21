@@ -1,2 +1,2 @@
-rootProject.name = "CloudNetv4JMXSupport"
+rootProject.name = "CloudNet-JMX-Support"
 
