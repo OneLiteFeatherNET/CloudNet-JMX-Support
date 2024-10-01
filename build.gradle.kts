@@ -19,7 +19,7 @@ dependencies {
     compileOnly("eu.cloudnetservice.cloudnet:bridge:4.0.0-RC10")
     // CloudNet Cloud Command Framework
     compileOnly("com.github.cloudnetservice.cloud-command-framework:cloud-core:1.9.0-cn1")
-    compileOnly("com.github.cloudnetservice.cloud-command-framework:cloud-annotations:1.9.0-cn1")
+    compileOnly("com.github.cloudnetservice.cloud-command-framework:cloud-annotations:2.0.0-cn1")
 }
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(17))
