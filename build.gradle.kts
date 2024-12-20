@@ -14,7 +14,7 @@ repositories {
 
 dependencies {
     // CloudNet
-    compileOnly("eu.cloudnetservice.cloudnet:driver:4.0.0-RC10")
+    compileOnly("eu.cloudnetservice.cloudnet:driver:4.0.0-RC11.2")
     compileOnly("eu.cloudnetservice.cloudnet:node:4.0.0-RC10")
     compileOnly("eu.cloudnetservice.cloudnet:bridge:4.0.0-RC10")
     // CloudNet Cloud Command Framework
